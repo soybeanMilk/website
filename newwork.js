@@ -573,7 +573,7 @@ $("#lunbo_next").click(function() {
 $("#lunbo_next2").click(function(event) {
     if(flag1){
         img+=1;
-        flag=false;
+        flag1=false;
         $("#third_line_center_bottom_fuck").animate({
             "left": -img*520-520},
             100,function (argument) {
