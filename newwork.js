@@ -99,6 +99,29 @@ var example1 = new Vue({
 })
 
 
+var example5 = new Vue({
+  el: '.twelve',
+  data: {
+    items: [
+        { src: "img/31.jpg",message: '充话费' },
+        { src: "img/32.jpg",message: '游戏' },
+        { src: "img/33.jpg",message: '旅行' },
+        { src: "img/34.jpg",message: '保险' },
+        { src: "img/35.jpg",message: '彩票' },
+        { src: "img/36.jpg",message: '电影' },
+        { src: "img/37.jpg",message: '点外卖' },
+        { src: "img/38.jpg",message: '理财' },
+        { src: "img/39.jpg",message: '找服务' },
+        { src: "img/310.jpg",message: '音乐' },
+        { src: "img/311.jpg",message: '水电煤' },
+        { src: "img/312.jpg",message: '火车票' },
+
+    ]
+  }
+})
+
+
+
 var example2 = new Vue({
   el: '#third_line_center_center_fuck',
   data: {
@@ -115,9 +138,95 @@ var example2 = new Vue({
   }
 })
 
+var example10 = new Vue({
+  el: '.picture_12',
+  data: {
+    items: [
+        { src: "img/71.jpg"},
+        { src: "img/72.jpg"},
+        { src: "img/73.jpg"},
+        { src: "img/74.jpg"},
+        { src: "img/75.jpg"},
+        { src: "img/76.jpg"},
+        { src: "img/77.jpg"},
+        { src: "img/78.jpg"},
+        { src: "img/79.jpg"},
+        { src: "img/710.jpg"},
 
 
+    ]
+  }
+})
 
+
+var jilu;
+$(".twelve_min").mouseover(function(event) {
+    var index = $(this).index();
+    if(index<4){
+        jilu = index;
+        $(this).children("a").children("p").css({
+            color: '#ff6537',
+        });
+        $(this).css({
+            borderColor: '#ff6537 #ff6537 #ffffff #ff6537',
+        });
+        for (var i = 0; i <4; i++) {
+            if (i!=index) {
+                $(".twelve_min").eq(i).css({
+                    borderColor: '#EAEAEA #EAEAEA #ff6537 #EAEAEA',
+                });
+            }
+        }
+        $(".four_content_ul1").show();
+
+    }
+});
+$(".twelve_min").mouseout(function(event) {
+
+    $(this).children("a").children("p").css({
+        color: '#666',
+    });
+    $(".four_content_ul1").hide();
+        for (var i = 0; i <4; i++) {
+                $(".twelve_min").eq(i).css({
+                    borderColor: '#EAEAEA',
+                });
+            
+        }
+});
+
+$(".four_content_ul1").mouseover(function(event) {
+        $(".twelve_min").eq(jilu).children("a").children("p").css({
+            color: '#ff6537',
+        });
+         $(".twelve_min").eq(jilu).css({
+            borderColor: '#ff6537 #ff6537 #ffffff #ff6537',
+        });
+
+        for (var i = 0; i <4; i++) {
+            if (i!=jilu) {
+                $(".twelve_min").eq(i).css({
+                    borderColor: '#EAEAEA #EAEAEA #ff6537 #EAEAEA',
+                });
+            }
+        }
+
+
+    $(this).show();
+
+});
+$(".four_content_ul1").mouseout(function(event) {
+     $(".twelve_min").eq(jilu).children("a").children("p").css({
+            color: '#666',
+        });
+    $(this).hide();
+    for (var i = 0; i <4; i++) {
+                $(".twelve_min").eq(i).css({
+                    borderColor: '#EAEAEA',
+                });
+            
+    }
+});
 
 
 var example3 = new Vue({
@@ -222,6 +331,98 @@ var example3 = new Vue({
 })
 
 
+var fuck = new Vue({
+  el:'.four_content_ul1',
+  data:{
+    item1:[
+        {
+            title:[
+            {biaoti:"充话费"},
+            {biaoti:"冲流量"},
+            {biaoti:"冲固话"},
+            {biaoti:"冲宽带"},
+
+            ],
+            content:[
+                {
+                    qian:[
+                        {jutihuafei:"100"},
+                        {jutihuafei:"10"},
+                        {jutihuafei:"200"},
+                        {jutihuafei:"20"},
+                        {jutihuafei:"300"},
+                        {jutihuafei:"30"},
+                        {jutihuafei:"500"},
+                        {jutihuafei:"50"},
+                        {jutihuafei:"1000"},
+
+
+                    ]
+                }
+            ]
+
+
+        }
+    ]
+  }
+
+})
+
+
+$(".incanghuafeili").click(function(event) {
+    var text = $(this).text();
+    $(".jiage1").text(text);
+    $("#youhui").text(text*98/100+'-'+text*99.5/100);
+    $(this).css({
+        backgroundColor: '#aaa',
+        color :'#fff'
+    });
+    $(".inhangdehuafei").hide();
+});
+
+
+$(".incanghuafeili").mouseover(function(event) {
+    $(this).css({
+        backgroundColor: '#aaa',
+        color :'#fff'
+    });
+});
+$(".incanghuafeili").mouseout(function(event) {
+    if($(this).text()!=$(".jiage1").text()){
+        $(this).css({
+            backgroundColor: '#fff',
+            color :'#000'
+        });
+    }
+});
+
+$(".four_content_lititle").mouseover(function(event) {
+    var index = $(this).index();
+    $(this).children().css({
+        color: '#ff6537',
+    });
+    $(".out").animate({
+        left: -300*index
+    },150);
+});
+
+
+$(".four_content_lititle").mouseout(function(event) {
+    $(this).children().css({
+        color: '#666',
+    });
+});
+
+
+$(".jiage").click(function(event) {
+    if($(".inhangdehuafei").is(":hidden")){
+        $(".inhangdehuafei").show();
+    }else{
+       $(".inhangdehuafei").hide(); 
+    }
+});
+
+
 var example3 = new Vue({
   el: '#third_line_center_bottom_fuck1',
   data: {
@@ -274,6 +475,9 @@ var example3 = new Vue({
     ]
   }
 })
+
+
+
 
 
 
@@ -660,6 +864,9 @@ $(".imply").click(function() {
     $(".second_left_input").focus();
 });
 
+
+
+
 $(document).ready(function() {
     $(".second_left_input").focus();
     $(".lunbo_point").children().first().css({
@@ -668,7 +875,39 @@ $(document).ready(function() {
     $(".lunbo_point1").children().first().css({
         backgroundColor: '#FF2400',
     });
+    $(".wuge_lanmu").eq(0).css({
+        borderColor: '#ff6537',
+    });
 });
+
+
+
+$(".wuge_lanmu").mouseover(function(){
+    var index = $(this).index();
+    t=setTimeout(function(){
+        $(".wuge_lanmu").eq(index).css({
+            borderColor: '#ff6537',
+            color:'#ff6537',
+            fontWeight:'900'
+        });
+        $(".five_content_in").eq(index).css({
+            display: 'block',
+        });
+        $(".wuge_lanmu").eq(index).siblings().css({
+            borderColor: '#ffffff',
+            color:'#000000',
+            fontWeight:'normal'
+        });
+        $(".five_content_in").eq(index).siblings().css({
+            display: 'none',
+        });
+    },250);
+}).mouseout(function(){
+clearTimeout(t);
+});
+
+
+
 
 $(".second_bottom_more").mouseover(function(event) {
     $(this).children().css("color","#ff6537");
